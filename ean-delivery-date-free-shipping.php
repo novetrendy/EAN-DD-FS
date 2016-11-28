@@ -9,9 +9,10 @@
 * Domain Path: /languages/
 * Author: Webstudio Nove Trendy
 * Author URI: http://webstudionovetrendy.eu/
-* License: Free to use and adapt
+* License: GPL2
 * WC requires at least: 2.3
 * WC tested up to: 2.5
+* GitHub Plugin URI: https://github.com/novetrendy/EAN-DD-FS
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
