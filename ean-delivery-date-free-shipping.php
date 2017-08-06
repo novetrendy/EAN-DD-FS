@@ -4,14 +4,14 @@
 * Plugin Name: EAN, Delivery Date, Short Description and Free Shipping
 * Plugin URI: http://webstudionovetrendy.eu/
 * Description: Add and show few custom fields to woocommerce products. Add new: EAN field, Delivery Date field, Title Short Description field and Free Shipping badge
-* Version: 160928
+* Version: 170806
 * Text Domain: nt-EDDSDFS
 * Domain Path: /languages/
 * Author: Webstudio Nove Trendy
 * Author URI: http://webstudionovetrendy.eu/
 * License: GPL2
-* WC requires at least: 2.3
-* WC tested up to: 2.5
+* WC requires at least: 2.6
+* WC tested up to: 3.0
 * GitHub Plugin URI: https://github.com/novetrendy/EAN-DD-FS
 */
 
@@ -165,7 +165,7 @@ Doba=43 a více: Na telefonický dotaz', 'nt-EDDSDFS')
     echo '</div>';
 }
 
-if (isset ($dd_options['delivery_date_support']) == 1 || ($dd_options['ean_support']) == 1)
+if (isset ($dd_options['delivery_date_support']) == 1 || isset ($dd_options['ean_support']) == 1)
 {
 
         // Save Fields - EAN, Delivery Date
