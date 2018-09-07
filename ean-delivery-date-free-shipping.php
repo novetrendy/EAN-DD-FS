@@ -4,7 +4,7 @@
 * Plugin Name: EAN, Delivery Date, Short Description and Free Shipping
 * Plugin URI: http://webstudionovetrendy.eu/
 * Description: Add and show few custom fields to woocommerce products. Add new: EAN field, Delivery Date field, Title Short Description field and Free Shipping badge
-* Version: 170806
+* Version: 180907
 * Text Domain: nt-EDDSDFS
 * Domain Path: /languages/
 * Author: Webstudio Nove Trendy
@@ -207,7 +207,7 @@ function ntfields_save($post_id, $post) {
 
 function delivery_details() {
     global $product;{
-        $nt_delivery_date = get_post_meta( $product->id, 'delivery_date', true );
+        $nt_delivery_date = get_post_meta( $product->get_id(), 'delivery_date', true );
         
         if ($nt_delivery_date == 0){$delivery_date_days_0 = $dd_options['delivery_date_0'];
             if (empty ($delivery_date_days_0)){$nt_delivery_date = __('In Stock', 'nt-EDDSDFS');}
@@ -315,7 +315,7 @@ function delivery_details() {
 
        function product_title_desc_form($post){
         wp_nonce_field( basename( __FILE__ ), 'product_title_description_nonce' );
-        $title_description = get_post_meta($post->ID, 'title-description', true);
+        $title_description = get_post_meta($post->get_ID(), 'title-description', true);
         ?>
         <p><label for="title-description"><?php echo __('Enter a short description that appears above the title product in the catalog. <br /> A maximum of 180 characters.', 'nt-EDDSDFS' )?></label><br /><br /><textarea maxlength="180" rows="6" cols="25" name="title-description" id="title-description1" value="<?php echo $title_description ; ?>"><?php echo $title_description ; ?></textarea></p> <?php
                                               }
@@ -340,7 +340,7 @@ function add_short_description_before_item_title()
             $add_string = ' ...'; }
             else {
             $add_string = ''; }
-        $before_title_add_description = substr(get_post_meta( $product->id, 'title-description', true ), 0, 220);
+        $before_title_add_description = substr(get_post_meta( $product->get_id(), 'title-description', true ), 0, 220);
         if (!empty ($before_title_add_description)){
        echo '<span style="'.get_option('nt_eddsdfs')['css_title_descriptions'].'">' . $before_title_add_description . $add_string . '<br /></span>';
         }
