@@ -264,7 +264,7 @@ function delivery_details() {
  function nt_free_shipping() {
 /** FREE SHIPPING */
         global $product;
-        $free_shipping_settings = get_option( 'woocommerce_free_shipping_settings' );
+        $free_shipping_settings = get_option( 'woocommerce_free_shipping_4_settings' );
         $free_shipping_min_amount = $free_shipping_settings['min_amount'];
         $product_actual_price = $product->get_price();
          if ($free_shipping_min_amount <= $product_actual_price)
@@ -292,14 +292,14 @@ function delivery_details() {
     add_action( 'woocommerce_before_shop_loop_item_title', 'badge_free_delivery', 10 );
         function badge_free_delivery (){
             global $product;
-            $free_shipping_settings = get_option( 'woocommerce_free_shipping_settings' );
+            $free_shipping_settings = get_option( 'woocommerce_free_shipping_4_settings' );
             $free_shipping_min_amount = $free_shipping_settings['min_amount'];
             $product_actual_price = $product->get_price();
                 if ($free_shipping_min_amount <= $product_actual_price){
                 if (empty(get_option('nt_eddsdfs')['css_wrap_badge_free_shipping'])){$wrap='position:absolute;top:188px;left:0;z-index:5;width:100%;';}
                 else $wrap = get_option('nt_eddsdfs')['css_wrap_badge_free_shipping'];
 
-                    echo '<span style="'.$wrap.'"><span style="'.get_option('nt_eddsdfs')['css_badge_free_shipping'].'">' . __('FREE SHIPPING !!!', 'nt-EDDSDFS') . '</span></span>';
+                    echo '<span class="doprava-zdarma" style="'.$wrap.'"><span style="'.get_option('nt_eddsdfs')['css_badge_free_shipping'].'">' . __('FREE SHIPPING !!!', 'nt-EDDSDFS') . '</span></span>';
                                                                        }
                                         }
                                                             }
