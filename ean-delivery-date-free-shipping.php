@@ -206,7 +206,10 @@ function ntfields_save($post_id, $post) {
 
 
 function delivery_details() {
-    global $product;{
+    global $product;
+    $pocet_skl = ($product->stock);
+    $pocet_skladem = number_format( $pocet_skl,0,'','' );
+    {
         $nt_delivery_date = get_post_meta( $product->get_id(), 'delivery_date', true );
         
         if ($nt_delivery_date == 0){$delivery_date_days_0 = $dd_options['delivery_date_0'];
@@ -245,7 +248,7 @@ function delivery_details() {
             if (empty ($delivery_date_days_56)){$nt_delivery_date = __('4 - 7 weeks', 'nt-EDDSDFS');}
             else $nt_delivery_date = $delivery_date_days_56;}
 
-        if ( $product->is_type( 'simple' ) ){
+        if ( $product->is_type( 'simple' ) && ($pocet_skladem >= 1)){
         echo '<div class="woocommerce_dd show_if_simple"><span style="' . get_option('nt_eddsdfs')['css_delivery_date'] . '">' . $nt_delivery_date . '</span><br /></div>';
         }
 }
