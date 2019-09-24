@@ -318,7 +318,7 @@ function delivery_details() {
 
        function product_title_desc_form($post){
         wp_nonce_field( basename( __FILE__ ), 'product_title_description_nonce' );
-        $title_description = get_post_meta($post->get_ID(), 'title-description', true);
+        $title_description = get_post_meta(get_the_ID(), 'title-description', true);
         ?>
         <p><label for="title-description"><?php echo __('Enter a short description that appears above the title product in the catalog. <br /> A maximum of 180 characters.', 'nt-EDDSDFS' )?></label><br /><br /><textarea maxlength="180" rows="6" cols="25" name="title-description" id="title-description1" value="<?php echo $title_description ; ?>"><?php echo $title_description ; ?></textarea></p> <?php
                                               }
